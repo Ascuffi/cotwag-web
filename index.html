@@ -3,60 +3,63 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>COTWAG SRL | Servicios Industriales</title>
+<title>COTWAG SRL</title>
 
 <style>
 body {
   margin:0;
   font-family: Arial;
-  background:#0a0f1c;
+  background:#0b0f1a;
   color:white;
 }
 
-/* HERO CON VIDEO */
+/* NAVBAR */
+nav {
+  position:fixed;
+  width:100%;
+  background:transparent;
+  padding:20px;
+  display:flex;
+  justify-content:space-between;
+  z-index:10;
+}
+
+nav a {
+  color:white;
+  margin:0 10px;
+  text-decoration:none;
+}
+
+/* HERO */
 .hero {
-  position:relative;
   height:100vh;
-  overflow:hidden;
-}
-
-.hero video {
-  position:absolute;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-.overlay {
-  position:absolute;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.6);
-}
-
-.hero-content {
-  position:relative;
-  z-index:2;
+  background:url('https://images.unsplash.com/photo-1581092335397-9583eb92d232') center/cover;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   text-align:center;
-  top:50%;
-  transform:translateY(-50%);
 }
 
-h1 {
-  font-size:50px;
+.hero h1 {
+  font-size:60px;
+}
+
+.hero p {
+  margin:20px 0;
+  font-size:20px;
 }
 
 .btn {
   background:#facc15;
-  padding:12px 25px;
   color:black;
+  padding:12px 25px;
   text-decoration:none;
-  border-radius:5px;
+  font-weight:bold;
 }
 
 /* SECCIONES */
 section {
-  padding:60px 20px;
+  padding:80px 20px;
 }
 
 .container {
@@ -71,14 +74,28 @@ h2 {
 /* GRID */
 .grid {
   display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:20px;
 }
 
 .card {
-  background:#1e293b;
-  padding:20px;
+  background:#111827;
+  padding:25px;
   border-radius:10px;
+}
+
+/* CLIENTES */
+.clientes {
+  background:#020617;
+  text-align:center;
+  padding:60px;
+}
+
+/* FOOTER */
+footer {
+  background:#000;
+  text-align:center;
+  padding:20px;
 }
 
 /* WHATSAPP */
@@ -98,48 +115,56 @@ h2 {
   text-decoration:none;
 }
 </style>
+
 </head>
 
 <body>
 
+<!-- NAV -->
+<nav>
+<div><strong>COTWAG SRL</strong></div>
+<div>
+#serviciosServicios</a>
+#equiposEquipamiento</a>
+#clientesClientes</a>
+#contactoContacto</a>
+</div>
+</nav>
+
 <!-- HERO -->
 <div class="hero">
+<div>
+<h1>Servicios Industriales</h1>
+<p>Soluciones integrales para la industria</p>
 
-  <!-- VIDEO FUNCIONANDO -->
-  <video autoplay muted loop>
-    <source src="https://cdn.coverr.co/videos/coverr-working-in-a-steel-factory-1576/1080p.mp4" type="video/mp4">
-  </video>
+https://wa.me/549228415217280
+Contactar
+</a>
 
-  <div class="overlay"></div>
-
-  <div class="hero-content">
-    <h1>COTWAG SRL</h1>
-    <p>Servicios Industriales</p>
-
-    <a class="btn" href="https://wa.me/549228415217280" target="_blank">
-      Contactar por WhatsApp
-    </a>
-  </div>
+</div>
 </div>
 
+<!-- SOBRE -->
 <section>
 <div class="container">
 <h2>Sobre Nosotros</h2>
 <p>
-Empresa especializada en servicios industriales en Olavarría y zona.
-Trabajamos con Loma Negra, Cerro Negro y Viterra Argentina.
+COTWAG SRL es una empresa especializada en servicios industriales con amplia experiencia en Olavarría y zona.
+Trabajamos con compañías líderes como Loma Negra, Cerro Negro y Viterra Argentina.
+Garantizamos calidad, cumplimiento y seguridad en cada proyecto.
 </p>
 </div>
 </section>
 
-<section>
+<!-- SERVICIOS -->
+<section id="servicios">
 <div class="container">
 <h2>Servicios</h2>
 
 <div class="grid">
 <div class="card">Ingeniería industrial</div>
 <div class="card">Fabricación metalúrgica</div>
-<div class="card">Montajes</div>
+<div class="card">Montajes industriales</div>
 <div class="card">Mantenimiento mecánico</div>
 <div class="card">Arenado y pintura</div>
 <div class="card">Hidrolavado industrial</div>
@@ -148,27 +173,40 @@ Trabajamos con Loma Negra, Cerro Negro y Viterra Argentina.
 </div>
 </section>
 
-<section>
+<!-- EQUIPAMIENTO -->
+<section id="equipos">
 <div class="container">
 <h2>Equipamiento</h2>
 <p>
-Grúas de hasta 70tn, soldadoras TIG/MIG, plegadoras y maquinaria industrial avanzada.
+Contamos con grúas de hasta 70 toneladas, pantógrafos láser, sistemas de soldadura TIG/MIG y maquinaria industrial de alta tecnología.
 </p>
 </div>
 </section>
 
-<section>
+<!-- CLIENTES -->
+<section id="clientes" class="clientes">
+<h2>Clientes</h2>
+<p>
+Loma Negra | Canteras Cerro Negro | Viterra Argentina | Canteras Argentinas
+</p>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
 <div class="container">
 <h2>Contacto</h2>
-<p>📍 Olavarría</p>
+<p>📍 Olavarría, Buenos Aires</p>
 <p>📞 02284-15217280</p>
 <p>✉ cotwagsrl@gmail.com</p>
 </div>
 </section>
 
+<footer>
+<p>© 2026 COTWAG SRL</p>
+</footer>
+
 <!-- WHATSAPP -->
-<a href="https://wa.me/549228415217280" class="whatsapp">💬</a>
+https://wa.me/549228415217280💬</a>
 
 </body>
 </html>
-
