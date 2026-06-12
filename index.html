@@ -1,159 +1,1163 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>COTWAG SRL</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="COTWAG SRL - Servicios Industriales en Olavarría, Buenos Aires">
+    <title>COTWAG SRL | Servicios Industriales</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<style>
-body {
-  margin:0;
-  font-family: Arial;
-  background:#0b0f1a;
-  color:white;
-}
+        :root {
+            --primary-dark: #0f172a;
+            --secondary-dark: #1e293b;
+            --tertiary-dark: #334155;
+            --accent-yellow: #fbbf24;
+            --accent-orange: #f97316;
+            --text-light: #f1f5f9;
+            --text-muted: #cbd5e1;
+            --border-color: #334155;
+        }
 
-/* NAV */
-nav {
-  position:fixed;
-  width:100%;
-  padding:15px;
-  display:flex;
-  justify-content:space-between;
-  background:rgba(0,0,0,0.7);
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-nav a {
-  color:white;
-  margin:0 10px;
-  text-decoration:none;
-}
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-/* HERO */
-.hero {
-  height:100vh;
-  background:url('https://images.unsplash.com/photo-1581092335397-9583eb92d232') center/cover;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-}
+        /* ======================== NAVBAR ======================== */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(251, 191, 36, 0.1);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        }
 
-.hero h1 {
-  font-size:50px;
-}
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--accent-yellow);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
 
-.btn {
-  background:#facc15;
-  color:black;
-  padding:12px 25px;
-  text-decoration:none;
-}
+        .logo::before {
+            content: "⚙";
+            font-size: 1.8rem;
+        }
 
-/* SECCIONES */
-section {
-  padding:80px 20px;
-}
+        nav .menu {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
 
-.container {
-  max-width:1100px;
-  margin:auto;
-}
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
 
-h2 {
-  color:#facc15;
-}
+        nav a:hover {
+            color: var(--accent-yellow);
+        }
 
-/* GRID */
-.grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-}
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-yellow);
+            transition: width 0.3s ease;
+        }
 
-.card {
-  background:#111827;
-  padding:20px;
-  border-radius:8px;
-}
+        nav a:hover::after {
+            width: 100%;
+        }
 
-/* WHATSAPP */
-.whatsapp {
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25d366;
-  width:60px;
-  height:60px;
-  border-radius:50%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-decoration:none;
-  color:white;
-  font-size:28px;
-}
-</style>
+        .cta-button {
+            background: linear-gradient(135deg, var(--accent-yellow), var(--accent-orange));
+            color: #000;
+            padding: 0.7rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
 
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(251, 191, 36, 0.3);
+        }
+
+        /* Menú móvil */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        /* ======================== HERO ======================== */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.7), rgba(30, 41, 59, 0.7)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%230f172a" width="1200" height="600"/><g stroke="%23334155" stroke-width="2" opacity="0.3"><line x1="0" y1="0" x2="1200" y2="600"/><line x1="1200" y1="0" x2="0" y2="600"/><circle cx="600" cy="300" r="200"/><rect x="100" y="100" width="400" height="400"/><path d="M 100 300 Q 600 100, 1100 300"/></g></svg>');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 70px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at top right, rgba(251, 191, 36, 0.1), transparent);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            padding: 2rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--accent-yellow), var(--accent-orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
+        }
+
+        .hero .tagline {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-yellow), var(--accent-orange));
+            color: #000;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(251, 191, 36, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent-yellow);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid var(--accent-yellow);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(251, 191, 36, 0.1);
+            transform: translateY(-3px);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ======================== SECCIONES GENERALES ======================== */
+        section {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+            position: relative;
+            display: inline-block;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(135deg, var(--accent-yellow), var(--accent-orange));
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-top: 1rem;
+            margin-bottom: 3rem;
+            max-width: 600px;
+        }
+
+        /* Secciones alternadas */
+        section:nth-child(even) {
+            background-color: rgba(30, 41, 59, 0.3);
+        }
+
+        /* ======================== SOBRE NOSOTROS ======================== */
+        #sobre {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.5), rgba(51, 65, 85, 0.3));
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        .about-text h3 {
+            font-size: 1.5rem;
+            color: var(--accent-yellow);
+            margin-bottom: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-box {
+            background: rgba(251, 191, 36, 0.05);
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-yellow);
+            text-align: center;
+        }
+
+        .stat-box .number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent-yellow);
+        }
+
+        .stat-box .label {
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(249, 115, 22, 0.1));
+            border-radius: 12px;
+            padding: 3rem;
+            text-align: center;
+            border: 1px solid rgba(251, 191, 36, 0.2);
+        }
+
+        .about-image-icon {
+            font-size: 8rem;
+            opacity: 0.8;
+            margin-bottom: 1rem;
+        }
+
+        /* ======================== SERVICIOS ======================== */
+        #servicios {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(30, 41, 59, 0.8));
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(51, 65, 85, 0.5));
+            border: 1px solid rgba(251, 191, 36, 0.1);
+            padding: 2rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-yellow), var(--accent-orange));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            border-color: var(--accent-yellow);
+            background: linear-gradient(135deg, rgba(51, 65, 85, 0.9), rgba(71, 85, 105, 0.6));
+            transform: translateY(-5px);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ======================== EQUIPAMIENTO ======================== */
+        #equipamiento {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.5), rgba(51, 65, 85, 0.3));
+        }
+
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .equipment-card {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(30, 41, 59, 0.7));
+            border: 1px solid rgba(251, 191, 36, 0.15);
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .equipment-card:hover {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 1), rgba(51, 65, 85, 0.8));
+            border-color: var(--accent-orange);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(249, 115, 22, 0.1);
+        }
+
+        .equipment-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .equipment-card h3 {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .equipment-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* ======================== CLIENTES ======================== */
+        #clientes {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(30, 41, 59, 0.8));
+        }
+
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .client-card {
+            background: linear-gradient(135deg, rgba(51, 65, 85, 0.6), rgba(71, 85, 105, 0.4));
+            border: 1px solid rgba(251, 191, 36, 0.1);
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 150px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .client-card:hover {
+            background: linear-gradient(135deg, rgba(71, 85, 105, 0.8), rgba(91, 105, 125, 0.6));
+            border-color: var(--accent-yellow);
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(251, 191, 36, 0.2);
+        }
+
+        .client-card::before {
+            content: '★';
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            color: var(--accent-yellow);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .client-card:hover::before {
+            opacity: 1;
+        }
+
+        /* ======================== CONTACTO ======================== */
+        #contacto {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.5), rgba(51, 65, 85, 0.3));
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .contact-icon {
+            font-size: 1.8rem;
+            color: var(--accent-yellow);
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+
+        .contact-item h3 {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-item p {
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .contact-item a {
+            color: var(--accent-yellow);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent-orange);
+            text-decoration: underline;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            background: rgba(51, 65, 85, 0.5);
+            border: 1px solid rgba(251, 191, 36, 0.2);
+            color: var(--text-light);
+            padding: 0.8rem;
+            border-radius: 6px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            background: rgba(51, 65, 85, 0.8);
+            border-color: var(--accent-yellow);
+            box-shadow: 0 0 15px rgba(251, 191, 36, 0.2);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            background: linear-gradient(135deg, var(--accent-yellow), var(--accent-orange));
+            color: #000;
+            padding: 1rem;
+            border-radius: 6px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(251, 191, 36, 0.3);
+        }
+
+        /* ======================== FOOTER ======================== */
+        footer {
+            background: rgba(15, 23, 42, 0.95);
+            border-top: 1px solid rgba(251, 191, 36, 0.1);
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        footer a {
+            color: var(--accent-yellow);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--accent-orange);
+        }
+
+        /* ======================== WHATSAPP BUTTON ======================== */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #25d366, #20ba5a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            color: white;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s ease;
+            z-index: 999;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.5);
+        }
+
+        /* ======================== SCROLL UP BUTTON ======================== */
+        .scroll-up {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            width: 50px;
+            height: 50px;
+            background: rgba(251, 191, 36, 0.1);
+            border: 2px solid var(--accent-yellow);
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--accent-yellow);
+            transition: all 0.3s ease;
+            z-index: 998;
+        }
+
+        .scroll-up:hover {
+            background: rgba(251, 191, 36, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .scroll-up.show {
+            display: flex;
+        }
+
+        /* ======================== RESPONSIVE ======================== */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav .menu {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: rgba(15, 23, 42, 0.98);
+                flex-direction: column;
+                gap: 0;
+                padding: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                border-bottom: 1px solid rgba(251, 191, 36, 0.1);
+            }
+
+            nav .menu.active {
+                max-height: 300px;
+            }
+
+            nav a {
+                display: block;
+                padding: 1rem 2rem;
+                border-bottom: 1px solid rgba(251, 191, 36, 0.05);
+            }
+
+            nav a::after {
+                display: none;
+            }
+
+            .cta-button {
+                display: none;
+            }
+
+            .hero {
+                height: 70vh;
+                margin-top: 60px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.1rem;
+            }
+
+            .hero-buttons {
+                gap: 0.8rem;
+            }
+
+            .btn-primary, .btn-secondary {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            section h2 {
+                font-size: 1.8rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid,
+            .equipment-grid,
+            .clients-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .whatsapp-btn {
+                width: 50px;
+                height: 50px;
+                bottom: 1.5rem;
+                right: 1.5rem;
+            }
+
+            .scroll-up {
+                width: 45px;
+                height: 45px;
+                bottom: 1.5rem;
+                left: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero .tagline {
+                font-size: 1rem;
+            }
+
+            .service-card,
+            .equipment-card,
+            .client-card {
+                padding: 1.5rem 1rem;
+            }
+
+            section h2 {
+                font-size: 1.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 
 <body>
+    <!-- NAVBAR -->
+    <nav>
+        <a href="#inicio" class="logo">COTWAG</a>
+        <button class="menu-toggle" id="menuToggle">☰</button>
+        <div class="menu" id="menu">
+            <a href="#inicio">Inicio</a>
+            <a href="#sobre">Sobre Nosotros</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#equipamiento">Equipamiento</a>
+            <a href="#clientes">Clientes</a>
+            <a href="#contacto">Contacto</a>
+            <a href="https://wa.me/5492284536565" class="cta-button">WhatsApp</a>
+        </div>
+    </nav>
 
-<nav>
-<strong>COTWAG SRL</strong>
-<div>
-<a href="#servicios">Servicios</a>
-<a href="#equipos">Equipamiento</a>
-<a href="#contacto">Contacto</a>
-</div>
-</nav>
+    <!-- HERO SECTION -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>COTWAG SRL</h1>
+            <p class="tagline">Servicios Industriales de Excelencia en Olavarría</p>
+            <div class="hero-buttons">
+                <a href="https://wa.me/5492284536565" class="btn-primary">📱 Contactar por WhatsApp</a>
+                <a href="#servicios" class="btn-secondary">Conocer Servicios</a>
+            </div>
+        </div>
+    </section>
 
-<div class="hero">
-<div>
-<h1>COTWAG SRL</h1>
-<p>Servicios Industriales</p>
+    <!-- SOBRE NOSOTROS -->
+    <section id="sobre">
+        <div class="container">
+            <h2>Sobre Nosotros</h2>
+            <p class="section-subtitle">Líderes en soluciones industriales con más de una década de experiencia</p>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Quiénes Somos</h3>
+                    <p>COTWAG SRL es una empresa especializada en servicios industriales con sede en Olavarría, Buenos Aires. Contamos con un equipo altamente capacitado y equipamiento de última generación para satisfacer las demandas más exigentes del sector industrial.</p>
+                    
+                    <h3>Nuestra Misión</h3>
+                    <p>Proporcionar soluciones industriales integrales, confiables y de alta calidad que permitan a nuestros clientes optimizar sus operaciones y alcanzar sus objetivos empresariales.</p>
+                    
+                    <h3>Valores</h3>
+                    <p>✓ Calidad sin compromiso<br>
+                    ✓ Seguridad en cada proyecto<br>
+                    ✓ Innovación permanente<br>
+                    ✓ Atención personalizada</p>
 
-<a href="https://wa.me/549228415217280" class="btn">
-Contactar
-</a>
+                    <div class="about-stats">
+                        <div class="stat-box">
+                            <div class="number">500+</div>
+                            <div class="label">Proyectos Completados</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="number">100%</div>
+                            <div class="label">Clientes Satisfechos</div>
+                        </div>
+                    </div>
+                </div>
 
-</div>
-</div>
+                <div class="about-image">
+                    <div class="about-image-icon">⚙️</div>
+                    <p>Somos expertos en soluciones industriales y equipamiento de última generación.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section id="servicios">
-<div class="container">
-<h2>Servicios</h2>
+    <!-- SERVICIOS -->
+    <section id="servicios">
+        <div class="container">
+            <h2>Nuestros Servicios</h2>
+            <p class="section-subtitle">Ofrecemos una amplia gama de servicios especializados para tu industria</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🏗️</div>
+                    <h3>Ingeniería Industrial</h3>
+                    <p>Diseño y planificación de proyectos industriales con máxima precisión y eficiencia operativa.</p>
+                </div>
 
-<div class="grid">
-<div class="card">Ingeniería industrial</div>
-<div class="card">Fabricación metalúrgica</div>
-<div class="card">Montajes industriales</div>
-<div class="card">Mantenimiento mecánico</div>
-<div class="card">Arenado y pintura</div>
-</div>
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3>Fabricación Metalúrgica</h3>
+                    <p>Fabricación de estructuras, piezas y componentes metálicos de alta precisión.</p>
+                </div>
 
-</div>
-</section>
+                <div class="service-card">
+                    <div class="service-icon">🏭</div>
+                    <h3>Montajes Industriales</h3>
+                    <p>Instalación y montaje de maquinaria industrial con estándares internacionales de seguridad.</p>
+                </div>
 
-<section id="equipos">
-<div class="container">
-<h2>Equipamiento</h2>
-<p>
-Grúas de 70tn, pantógrafos láser y maquinaria industrial de alta tecnología.
-</p>
-</div>
-</section>
+                <div class="service-card">
+                    <div class="service-icon">🔩</div>
+                    <h3>Mantenimiento Mecánico</h3>
+                    <p>Servicios de mantenimiento preventivo y correctivo para garantizar la continuidad operativa.</p>
+                </div>
 
-<section id="contacto">
-<div class="container">
-<h2>Contacto</h2>
-<p>📍 Olavarría</p>
-<p>📞 02284-15217280</p>
-<p>✉ cotwagsrl@gmail.com</p>
-</div>
-</section>
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3>Arenado y Pintura</h3>
+                    <p>Tratamiento de superficies y pintura industrial con máxima durabilidad y acabado profesional.</p>
+                </div>
 
-<a href="https://wa.me/549228415217280" class="whatsapp">💬</a>
+                <div class="service-card">
+                    <div class="service-icon">💧</div>
+                    <h3>Hidrolavado Industrial</h3>
+                    <p>Limpieza profunda de equipos e instalaciones con tecnología de alta presión.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- EQUIPAMIENTO -->
+    <section id="equipamiento">
+        <div class="container">
+            <h2>Nuestro Equipamiento</h2>
+            <p class="section-subtitle">Contamos con tecnología de punta para ejecutar los proyectos más complejos</p>
+            
+            <div class="equipment-grid">
+                <div class="equipment-card">
+                    <div class="equipment-icon">🏋️</div>
+                    <h3>Grúas</h3>
+                    <p>Grúas de hasta 70 toneladas de capacidad</p>
+                </div>
+
+                <div class="equipment-card">
+                    <div class="equipment-icon">🚗</div>
+                    <h3>Hidrogrúas</h3>
+                    <p>Hidrogrúas habilitadas y certificadas</p>
+                </div>
+
+                <div class="equipment-card">
+                    <div class="equipment-icon">✂️</div>
+                    <h3>Pantógrafos Láser</h3>
+                    <p>Corte de precisión en múltiples materiales</p>
+                </div>
+
+                <div class="equipment-card">
+                    <div class="equipment-icon">🔥</div>
+                    <h3>Soldadoras TIG/MIG</h3>
+                    <p>Soldadura de alta calidad y precisión</p>
+                </div>
+
+                <div class="equipment-card">
+                    <div class="equipment-icon">🏭</div>
+                    <h3>Taller Metalúrgico</h3>
+                    <p>Taller equipado completamente</p>
+                </div>
+
+                <div class="equipment-card">
+                    <div class="equipment-icon">⚡</div>
+                    <h3>Equipamiento Completo</h3>
+                    <p>Maquinaria industrial de última generación</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLIENTES -->
+    <section id="clientes">
+        <div class="container">
+            <h2>Nuestros Clientes</h2>
+            <p class="section-subtitle">Empresas líderes confían en nuestros servicios</p>
+            
+            <div class="clients-grid">
+                <div class="client-card">Loma Negra</div>
+                <div class="client-card">Canteras Cerro Negro</div>
+                <div class="client-card">Bunge S.A</div>
+                <div class="client-card">Renova Quequén</div>
+                <div class="client-card">Canteras Argentinas</div>
+                <div class="client-card">+ Más Clientes</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto">
+        <div class="container">
+            <h2>Contáctanos</h2>
+            <p class="section-subtitle">Estamos aquí para ayudarte. Ponte en contacto con nosotros hoy mismo</p>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <h3>Ubicación</h3>
+                            <p>Olavarría, Buenos Aires<br>Argentina</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div>
+                            <h3>Teléfono</h3>
+                            <p><a href="tel:+5492284536565">+54 9 2284 53-6565</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <h3>Email</h3>
+                            <p><a href="mailto:cotwagsrl@gmail.com">cotwagsrl@gmail.com</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">💬</div>
+                        <div>
+                            <h3>WhatsApp</h3>
+                            <p><a href="https://wa.me/5492284536565">Envíanos un mensaje</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="empresa">Empresa</label>
+                        <input type="text" id="empresa" name="empresa">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" required></textarea>
+                    </div>
+
+                    <button type="submit" class="form-submit">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2024 <strong>COTWAG SRL</strong> - Servicios Industriales. Todos los derechos reservados.</p>
+        <p>Ubicados en Olavarría, Buenos Aires | <a href="tel:+5492284536565">+54 9 2284 53-6565</a></p>
+    </footer>
+
+    <!-- WHATSAPP BUTTON -->
+    <a href="https://wa.me/5492284536565" class="whatsapp-btn" title="Contactar por WhatsApp">💬</a>
+
+    <!-- SCROLL UP BUTTON -->
+    <button class="scroll-up" id="scrollUp">⬆</button>
+
+    <script>
+        // Menu toggle para móvil
+        const menuToggle = document.getElementById('menuToggle');
+        const menu = document.getElementById('menu');
+
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
+
+        // Cerrar menú al hacer click en un enlace
+        document.querySelectorAll('#menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.remove('active');
+            });
+        });
+
+        // Scroll Up Button
+        const scrollUpBtn = document.getElementById('scrollUp');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollUpBtn.classList.add('show');
+            } else {
+                scrollUpBtn.classList.remove('show');
+            }
+        });
+
+        scrollUpBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Form submission
+        document.querySelector('.contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+            const empresa = document.getElementById('empresa').value;
+            const mensaje = document.getElementById('mensaje').value;
+            
+            const whatsappMessage = `Hola, soy ${nombre} de ${empresa || 'una empresa'}. Mi email es ${email}. Quisiera consultar: ${mensaje}`;
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            
+            window.open(`https://wa.me/5492284536565?text=${encodedMessage}`, '_blank');
+            
+            // Limpiar formulario
+            document.querySelector('.contact-form').reset();
+        });
+
+        // Scroll suave para anclas
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
