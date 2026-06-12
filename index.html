@@ -13,15 +13,14 @@ body {
   color:white;
 }
 
-/* NAVBAR */
+/* NAV */
 nav {
   position:fixed;
   width:100%;
-  background:transparent;
-  padding:20px;
+  padding:15px;
   display:flex;
   justify-content:space-between;
-  z-index:10;
+  background:rgba(0,0,0,0.7);
 }
 
 nav a {
@@ -41,12 +40,7 @@ nav a {
 }
 
 .hero h1 {
-  font-size:60px;
-}
-
-.hero p {
-  margin:20px 0;
-  font-size:20px;
+  font-size:50px;
 }
 
 .btn {
@@ -54,7 +48,6 @@ nav a {
   color:black;
   padding:12px 25px;
   text-decoration:none;
-  font-weight:bold;
 }
 
 /* SECCIONES */
@@ -80,22 +73,8 @@ h2 {
 
 .card {
   background:#111827;
-  padding:25px;
-  border-radius:10px;
-}
-
-/* CLIENTES */
-.clientes {
-  background:#020617;
-  text-align:center;
-  padding:60px;
-}
-
-/* FOOTER */
-footer {
-  background:#000;
-  text-align:center;
   padding:20px;
+  border-radius:8px;
 }
 
 /* WHATSAPP */
@@ -110,9 +89,9 @@ footer {
   display:flex;
   justify-content:center;
   align-items:center;
+  text-decoration:none;
   color:white;
   font-size:28px;
-  text-decoration:none;
 }
 </style>
 
@@ -120,43 +99,27 @@ footer {
 
 <body>
 
-<!-- NAV -->
 <nav>
-<div><strong>COTWAG SRL</strong></div>
+<strong>COTWAG SRL</strong>
 <div>
-#serviciosServicios</a>
-#equiposEquipamiento</a>
-#clientesClientes</a>
-#contactoContacto</a>
+<a href="#servicios">Servicios</a>
+<a href="#equipos">Equipamiento</a>
+<a href="#contacto">Contacto</a>
 </div>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
 <div>
-<h1>Servicios Industriales</h1>
-<p>Soluciones integrales para la industria</p>
+<h1>COTWAG SRL</h1>
+<p>Servicios Industriales</p>
 
-https://wa.me/549228415217280
+<a href="https://wa.me/549228415217280" class="btn">
 Contactar
 </a>
 
 </div>
 </div>
 
-<!-- SOBRE -->
-<section>
-<div class="container">
-<h2>Sobre Nosotros</h2>
-<p>
-COTWAG SRL es una empresa especializada en servicios industriales con amplia experiencia en Olavarría y zona.
-Trabajamos con compañías líderes como Loma Negra, Cerro Negro y Viterra Argentina.
-Garantizamos calidad, cumplimiento y seguridad en cada proyecto.
-</p>
-</div>
-</section>
-
-<!-- SERVICIOS -->
 <section id="servicios">
 <div class="container">
 <h2>Servicios</h2>
@@ -167,46 +130,30 @@ Garantizamos calidad, cumplimiento y seguridad en cada proyecto.
 <div class="card">Montajes industriales</div>
 <div class="card">Mantenimiento mecánico</div>
 <div class="card">Arenado y pintura</div>
-<div class="card">Hidrolavado industrial</div>
 </div>
 
 </div>
 </section>
 
-<!-- EQUIPAMIENTO -->
 <section id="equipos">
 <div class="container">
 <h2>Equipamiento</h2>
 <p>
-Contamos con grúas de hasta 70 toneladas, pantógrafos láser, sistemas de soldadura TIG/MIG y maquinaria industrial de alta tecnología.
+Grúas de 70tn, pantógrafos láser y maquinaria industrial de alta tecnología.
 </p>
 </div>
 </section>
 
-<!-- CLIENTES -->
-<section id="clientes" class="clientes">
-<h2>Clientes</h2>
-<p>
-Loma Negra | Canteras Cerro Negro | Viterra Argentina | Canteras Argentinas
-</p>
-</section>
-
-<!-- CONTACTO -->
 <section id="contacto">
 <div class="container">
 <h2>Contacto</h2>
-<p>📍 Olavarría, Buenos Aires</p>
+<p>📍 Olavarría</p>
 <p>📞 02284-15217280</p>
 <p>✉ cotwagsrl@gmail.com</p>
 </div>
 </section>
 
-<footer>
-<p>© 2026 COTWAG SRL</p>
-</footer>
-
-<!-- WHATSAPP -->
-https://wa.me/549228415217280💬</a>
+<a href="https://wa.me/549228415217280" class="whatsapp">💬</a>
 
 </body>
 </html>
