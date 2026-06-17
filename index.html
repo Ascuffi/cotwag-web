@@ -1402,50 +1402,19 @@
         <p>Ubicados en Olavarría, Buenos Aires | <a href="tel:+5492284536565">+54 9 2284 53-6565</a></p>
     </footer>
 
-!-- BOTONES WHATSAPP -->
-<a href="https://wa.me/5492284536565?text=Hola%20me%20gustaria%20saber%20mas%20sobre%20sus%20servicios" class="btn-primary">
-📱 Contactar por WhatsApp
-</a>
+    <!-- WHATSAPP BUTTON -->
+    <a href="https://wa.me/5492284536565" class="whatsapp-btn" title="Contactar por WhatsApp">💬</a>
 
-<!-- NAVBAR WHATSAPP -->
-<a href="https://wa.me/5492284536565?text=Hola%20me%20gustaria%20consultar%20por%20sus%20servicios" class="cta-button">
-WhatsApp
-</a>
+    <!-- SCROLL UP BUTTON -->
+    <button class="scroll-up" id="scrollUp">⬆</button>
 
-<!-- CONTACTO WHATSAPP -->
-<a href="https://wa.me/5492284536565?text=Hola%20quiero%20hacer%20una%20consulta">
-Envíanos un mensaje
-</a>
-
-<!-- BOTON FLOTANTE -->
-<a href="https://wa.me/5492284536565?text=Hola%20necesito%20informacion" class="whatsapp-btn">
-    <img src="assets/images/ws.png" style="width:35px;">
-</a>
-
-<!-- GALERÍA REEMPLAZAR COMPLETA -->
-<div class="gallery-grid" id="gallery">
-
-<div class="gallery-item" onclick="openModal(this)">
-<img src="assets/images/img1.jpg">
-<div class="gallery-overlay">Grúa en Acción</div>
-</div>
-
-<div class="gallery-item" onclick="openModal(this)">
-<img src="assets/images/img2.jpg">
-<div class="gallery-overlay">Grúa Liebherr</div>
-</div>
-
-<div class="gallery-item" onclick="openModal(this)">
-<img src="assets/images/img3.jpg">
-<div class="gallery-overlay">Cargadora CAT</div>
-</div>
-
-<div class="gallery-item" onclick="openModal(this)">
-<img src="assets/images/img4.jpg">
-<div class="gallery-overlay">Montaje Industrial</div>
-</div>
-
-</div>
+    <!-- MODAL -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <img id="modalImage" src="" alt="">
+        </div>
+    </div>
 
     <script>
         // Crear partículas animadas en el fondo
