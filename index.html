@@ -1259,40 +1259,41 @@
         </div>
     </section>
 
-    <!-- GALERÍA DE EQUIPAMIENTO -->
-    <section id="galeria-equipo">
-        <div class="container">
-            <h2>Galería de Proyectos</h2>
-            <p class="section-subtitle">Conoce nuestros trabajos realizados y equipamiento en acción</p>
-            
-            <div class="gallery-grid" id="gallery">
-                <div class="gallery-item" onclick="openModal(this)">
-                    <div style="background: linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(56, 189, 248, 0.1)); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-muted);">
-                        📸 Galería
-                    </div>
-                    <div class="gallery-overlay">Grúa en Acción</div>
-                </div>
-                <div class="gallery-item" onclick="openModal(this)">
-                    <div style="background: linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(56, 189, 248, 0.1)); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-muted);">
-                        📸 Galería
-                    </div>
-                    <div class="gallery-overlay">Grúa Liebherr</div>
-                </div>
-                <div class="gallery-item" onclick="openModal(this)">
-                    <div style="background: linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(56, 189, 248, 0.1)); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-muted);">
-                        📸 Galería
-                    </div>
-                    <div class="gallery-overlay">Cargadora CAT</div>
-                </div>
-                <div class="gallery-item" onclick="openModal(this)">
-                    <div style="background: linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(56, 189, 248, 0.1)); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-muted);">
-                        📸 Galería
-                    </div>
-                    <div class="gallery-overlay">Montaje Industrial</div>
+<!-- GALERÍA DE EQUIPAMIENTO -->
+<section id="galeria-equipo">
+    <div class="container">
+        <h2>Galería de Proyectos</h2>
+        <p class="section-subtitle">
+            Conoce nuestros trabajos realizados y equipamiento en acción
+        </p>
+
+        <div class="gallery-grid" id="gallery">
+
+            <div class="gallery-item" onclick="openModal(this)">
+                img/Grua70tn.jpeg
+                <div class="gallery-overlay">Grúa 70 TN</div>
+            </div>
+
+            <div class="gallery-item" onclick="openModal(this)">
+                img/Grua70tn2.jpeg" alt="Grúa 70 TN">
+                <div class="gallery-overlay">
+                    Grúa 70 TN - Trabajo Industrial
                 </div>
             </div>
+
+            <div class="gallery-item" onclick="openModal(this)">
+                img/Hidrogrua1.jpeg
+                <div class="gallery-overlay">Hidrogrúa</div>
+            </div>
+
+            <div class="gallery-item" onclick="openModal(this)">
+                " alt="Montaje Industrial">
+                <div class="gallery-overlay">Montaje Industrial</div>
+            </div>
+
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- EQUIPAMIENTO -->
     <section id="equipamiento">
@@ -1561,13 +1562,19 @@
         });
 
         // Modal functions
-        function openModal(element) {
-            const modal = document.getElementById('modal');
-            const modalImage = document.getElementById('modalImage');
-            const overlayText = element.querySelector('.gallery-overlay').textContent;
-            modalImage.alt = overlayText;
-            modal.classList.add('active');
-        }
+function openModal(element) {
+
+    const modal = document.getElementById('modal');
+    const modalImage = document.getElementById('modalImage');
+
+    const img = element.querySelector('img');
+
+    if (img) {
+        modalImage.src = img.src;
+        modalImage.alt = img.alt;
+        modal.classList.add('active');
+    }
+}
 
         function closeModal() {
             const modal = document.getElementById('modal');
