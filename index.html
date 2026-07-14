@@ -677,12 +677,18 @@
         }
 
         .client-card img {
-            max-width: 90%;
-            max-height: 90%;
-            width: auto;
-            height: auto;
-            object-fit: contain;
-        }
+    max-width: 180px;
+    max-height: 90px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    transition: all 0.3s ease;
+    filter: brightness(1);
+}
+
+.client-card:hover img {
+    transform: scale(1.08);
+}
 
         .client-card p {
             color: var(--text-light);
@@ -1371,22 +1377,27 @@
             
             <div class="clients-grid">
                 <div class="client-card">
+                    <img src="img/lomanegra.png" alt="Loma Negra">
                     <p>Loma Negra</p>
                 </div>
                 <div class="client-card">
+                    <img src="img/cerronegro.png" alt="Cantera Cerro Negro">
                     <p>Canteras Cerro Negro</p>
                 </div>
                 <div class="client-card">
-                    <p>Bunge S.A</p>
+                    <img src="img/Bunge.png" alt="Bunge S.A.">
+                    <p>Bunge S.A.</p>
                 </div>
                 <div class="client-card">
+                    <img src="img/renova.png" alt="Renova Quequen">
                     <p>Renova Quequén</p>
                 </div>
                 <div class="client-card">
-                    <p>Canteras Argentinas</p>
+                    <img src="img/canteraadina.png" alt="Cantera Andina">
+                    <p>Canteras Andina</p>
                 </div>
-                <div class="client-card">
-                    <p>+ Más Clientes</p>
+                <div class="client-card more-clients">
+                    <p>+ Más clientes</p>
                 </div>
             </div>
         </div>
