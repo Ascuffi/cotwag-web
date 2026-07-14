@@ -472,56 +472,68 @@
         }
 
         .service-card {
-            background: linear-gradient(135deg, rgba(30, 41, 59, 0.6), rgba(14, 165, 233, 0.03));
-            border: 1px solid rgba(14, 165, 233, 0.1);
-            padding: 2rem;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
+    height: 320px;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    border: 1px solid rgba(14,165,233,0.2);
+    transition: all 0.3s ease;
+}
 
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--accent-blue);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
-        }
+.service-card:hover {
+    transform: scale(1.03);
+}
 
-        .service-card:hover {
-            border-color: var(--accent-blue);
-            background: linear-gradient(135deg, rgba(51, 65, 85, 0.6), rgba(14, 165, 233, 0.08));
-            transform: translateY(-5px);
-        }
+.service-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.85),
+        rgba(0,0,0,0.35)
+    );
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
 
-        .service-card:hover::before {
-            transform: scaleX(1);
-        }
+.service-overlay h3 {
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
 
-        .service-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            display: inline-block;
-        }
+.service-overlay p {
+    color: white;
+    font-size: 0.95rem;
+}
+        .ingenieria {
+    background-image: url('img/ingenieria.jpg');
+}
 
-        .service-card h3 {
-            font-size: 1.3rem;
-            color: var(--text-light);
-            margin-bottom: 0.8rem;
-            font-weight: 600;
-        }
+.fabricacion {
+    background-image: url('img/Fabricacion.jpg');
+}
 
-        .service-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
+.montajes {
+    background-image: url('img/montaje4.jpg');
+}
+
+.mantenimiento {
+    background-image: url('img/mantenimiento.jpg');
+}
+
+.arenado {
+    background-image: url('img/PinturayArenado.jpg');
+}
+
+.hidrolavado {
+    background-image: url('img/hidrolavado.jpg');
+}
+
 
         /* ======================== GALERÍA DE EQUIPAMIENTO ======================== */
         #galeria-equipo {
@@ -1220,42 +1232,50 @@
             <p class="section-subtitle">Soluciones especializadas para tu industria</p>
             
             <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🏗️</div>
-                    <h3>Ingeniería Industrial</h3>
-                    <p>Diseño y planificación de proyectos industriales con máxima precisión y eficiencia operativa.</p>
-                </div>
 
-                <div class="service-card">
-                    <div class="service-icon">🔧</div>
-                    <h3>Fabricación Metalúrgica</h3>
-                    <p>Fabricación de estructuras, piezas y componentes metálicos de alta precisión.</p>
-                </div>
+    <div class="service-card ingenieria">
+        <div class="service-overlay">
+            <h3>Ingeniería Industrial</h3>
+            <p>Diseño y planificación de proyectos industriales con máxima precisión y eficiencia operativa.</p>
+        </div>
+    </div>
 
-                <div class="service-card">
-                    <div class="service-icon">🏭</div>
-                    <h3>Montajes Industriales</h3>
-                    <p>Instalación y montaje de maquinaria industrial con estándares internacionales de seguridad.</p>
-                </div>
+    <div class="service-card fabricacion">
+        <div class="service-overlay">
+            <h3>Fabricación Metalúrgica</h3>
+            <p>Fabricación de estructuras, piezas y componentes metálicos de alta precisión.</p>
+        </div>
+    </div>
 
-                <div class="service-card">
-                    <div class="service-icon">🔩</div>
-                    <h3>Mantenimiento Mecánico</h3>
-                    <p>Servicios de mantenimiento preventivo y correctivo para garantizar la continuidad operativa.</p>
-                </div>
+    <div class="service-card montajes">
+        <div class="service-overlay">
+            <h3>Montajes Industriales</h3>
+            <p>Instalación y montaje de maquinaria industrial con estándares internacionales de seguridad.</p>
+        </div>
+    </div>
 
-                <div class="service-card">
-                    <div class="service-icon">🎨</div>
-                    <h3>Arenado y Pintura</h3>
-                    <p>Tratamiento de superficies y pintura industrial con máxima durabilidad y acabado profesional.</p>
-                </div>
+    <div class="service-card mantenimiento">
+        <div class="service-overlay">
+            <h3>Mantenimiento Mecánico</h3>
+            <p>Servicios de mantenimiento preventivo y correctivo para garantizar la continuidad operativa.</p>
+        </div>
+    </div>
 
-                <div class="service-card">
-                    <div class="service-icon">💧</div>
-                    <h3>Hidrolavado Industrial</h3>
-                    <p>Limpieza profunda de equipos e instalaciones con tecnología de alta presión.</p>
-                </div>
-            </div>
+    <div class="service-card arenado">
+        <div class="service-overlay">
+            <h3>Arenado y Pintura</h3>
+            <p>Tratamiento de superficies y pintura industrial con máxima durabilidad y acabado profesional.</p>
+        </div>
+    </div>
+
+    <div class="service-card hidrolavado">
+        <div class="service-overlay">
+            <h3>Hidrolavado Industrial</h3>
+            <p>Limpieza profunda de equipos e instalaciones con tecnología de alta presión.</p>
+        </div>
+    </div>
+
+</div>
         </div>
     </section>
     
